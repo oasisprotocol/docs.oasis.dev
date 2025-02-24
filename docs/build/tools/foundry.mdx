@@ -70,12 +70,14 @@ ffi = true
    ```shell
    forge soldeer install
    ```
-5. Install rust nightly:
+5. Install rust toolchain (nightly):
    ```shell
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    rustup toolchain install nightly
    rustup default nightly
    ```
+   - `@oasisprotocol-sapphire-foundry` relies on Oasis Sapphire `runtime-sdk` 
+   crate which requires nightly toolchain.
 6. Install Sapphire precompiles:
    ```shell
    cd dependencies/@oasisprotocol-sapphire-foundry-0.1.0/precompiles
@@ -166,8 +168,8 @@ When running scripts, we might also want to run on Localnet/Testnet/Mainnet
 using `--rpc-url` or `--fork-url`.
 This is not possible with this setup, because Sapphire precompiles are not 
 available in the default revm.
-When using forge script on a external RPC node or a fork, 
-precompiles are available through `vm.rpcUrl()` cheatcode.
+When using `forge script` on an external RPC node or a fork, 
+precompiles are available through the `vm.rpcUrl()` cheatcode.
 To disable simulation on integrated revm make sure to disable 
 simulation with `--no-simulation` flag and 
 remove the imports and inheritances from previous steps.
